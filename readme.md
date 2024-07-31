@@ -8,7 +8,7 @@ This is a template for creating documentation for hardware projects. It is built
 
 
 ## Setup
-[Download](https://github.com/alustig3/mkdocs/archive/refs/heads/main.zip) this template place it in you project folder. You may need to rename the folder from `mkdocs-main/` to `mkdocs/`
+[Download](https://github.com/alustig3/mkdocs/releases/download/v1.0/mkdocs.zip) this template and place it in you project folder
 
 
 ### Install Python libraries
