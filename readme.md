@@ -1,22 +1,17 @@
 
+# Mkdocs template
+This is a template for creating documentation for hardware projects. It is built on top of the following projects:
 
-## Submodule setup
-Add this repository as a submodule by going to the top level of you project of your project and running the following from the command line:
-
-```
-git submodule add https://github.com/alustig3/mkdocs.git mkdocs
-```
-
-```
-git submodule init
-```
-
-```
-git submodule update
-```
+- [MkDocs](https://github.com/mkdocs/mkdocs) static webiste generator
+- [Material for MkDocs](https://github.com/squidfunk/mkdocs-material) theme
+- [Mike](https://github.com/jimporter/mike) doc version management
 
 
-## Python libraries installation
+## Setup
+[Download](https://github.com/alustig3/mkdocs/archive/refs/heads/main.zip) this template place it in you project folder. You may need to rename the folder from `mkdocs-main/` to `mkdocs/`
+
+
+### Install Python libraries
 install [uv](https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started) if you don't have it yet
 
 create a python virtual environment for your project
@@ -37,4 +32,49 @@ source .venv/bin/activate
 
 install the python libraries by running 
 
-`uv pip install -r mkdocs/mkdocs_requirements.txt`
+```
+uv pip install -r mkdocs/mkdocs_requirements.txt
+```
+
+## Serve docs
+```
+cd mkdocs/
+```
+```
+mkdocs serve
+```
+
+## Publish docs
+
+### Setup GitHub Pages
+go to `Settings -> Pages`
+- Set the Buid and deployment source to `Deploy from a branch`
+- Set the branch to `gh-pages`
+
+![pages setup](/pages_setup.png)
+
+### Deploy using Mike
+
+make sure you are in the `mkdocs` folder
+```
+cd mkdocs/
+```
+
+#### First time setup
+```
+mike delete --all
+```
+
+```
+mike deploy v1.0 latest
+```
+
+```
+mike set-default latest
+```
+
+#### Deploying a new version
+
+```
+mike deploy --update-aliases v1.1 latest
+```
