@@ -47,9 +47,10 @@ mkdocs serve
 ## Publish docs
 
 ### Setup GitHub Pages
+
 go to `Settings -> Pages`
 - Set the Buid and deployment source to `Deploy from a branch`
-- Set the branch to `gh-pages`
+- Set the branch to `gh-pages` and `/(root)`
 
 ![pages setup](/pages_setup.png)
 
