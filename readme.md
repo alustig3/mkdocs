@@ -43,10 +43,7 @@ uv sync
 ## Serve docs
 From within the `mkdocs/` folder run
 ```
-cd mkdocs/
-```
-```
-mkdocs serve
+uv run mkdocs serve
 ```
 
 ## Publish docs
@@ -61,26 +58,26 @@ mkdocs serve
 
 ### Deploy using Mike
 
-make sure you are in the `mkdocs` folder
+make sure you are in the `mkdocs/` folder
 ```
 cd mkdocs/
 ```
 
 #### First time setup
 ```
-mike delete --all
+uv mike delete --all
 ```
 
 ```
-mike deploy v1.0 latest
+uv mike deploy v1.0 latest
 ```
 
 ```
-mike set-default latest
+uv mike set-default latest
 ```
 
 #### Deploying a new version
 
 ```
-mike deploy --update-aliases v1.1 latest
+uv mike deploy --update-aliases v1.1 latest
 ```
