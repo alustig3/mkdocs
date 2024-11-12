@@ -1,42 +1,47 @@
 
-# Mkdocs template
+# Hardware documenation template
 This is a template for creating documentation for hardware projects. It is built on top of the following projects:
 
-- [MkDocs](https://github.com/mkdocs/mkdocs) static webiste generator
-- [Material for MkDocs](https://github.com/squidfunk/mkdocs-material) theme
-- [Mike](https://github.com/jimporter/mike) doc version management
+- [MkDocs](https://github.com/mkdocs/mkdocs) - a static website generator
+- [Material for MkDocs](https://github.com/squidfunk/mkdocs-material) - a theme for MkDocs
+- [Mike](https://github.com/jimporter/mike) - a tool for publishing and managing multiple documentation versions
+- [Mkdocs Markdown includer plugin](https://github.com/mondeja/mkdocs-include-markdown-plugin)
 
 
 ## Setup
-[Download](https://github.com/alustig3/mkdocs/releases/download/v1.0/mkdocs.zip) this template and place it in you project folder
+
+Add this repository as a submodule by going to the top level of your project and running the following from the command line:
+
+```
+git submodule add https://github.com/alustig3/mkdocs.git mkdocs && git submodule update --init --recursive
+```
 
 
 ### Install Python libraries
-install [uv](https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started) if you don't have it yet
+Python dependencies are managed using [uv](https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started).
 
-create a python virtual environment for your project
+You can run the following command to either install uv or update your current installation.
 
+on macOS and Linux:
 ```
-uv venv
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
-
-activate the virtual environment
+on Windows
 ```
-# On macOS and Linux.
-source .venv/bin/activate
-
-# On Windows.
-.venv\Scripts\activate
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 
-install the python libraries by running 
-
+Enter the mkdocs directory and sync the project using uv
 ```
-uv pip install -r mkdocs/mkdocs_requirements.txt
+cd mkdocs/
+```
+```
+uv sync
 ```
 
 ## Serve docs
+From within the `mkdocs/` folder run
 ```
 cd mkdocs/
 ```
@@ -48,8 +53,8 @@ mkdocs serve
 
 ### Setup GitHub Pages
 
-go to `Settings -> Pages`
-- Set the Buid and deployment source to `Deploy from a branch`
+- go to `Settings -> Pages`
+- Set the Build and deployment source to `Deploy from a branch`
 - Set the branch to `gh-pages` and `/(root)`
 
 ![pages setup](/pages_setup.png)
